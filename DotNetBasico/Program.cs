@@ -35,7 +35,7 @@ Console.WriteLine($" VAlor em Dolar: {valor.ToString("C", CultureInfo.CreateSpec
 
 
 
-*/
+
 
 // Conceitos de Fila
 Pessoa pessoa1 = new Pessoa(nome: "Burumungu", idade: 40);
@@ -108,7 +108,40 @@ foreach (var item in listaDicionario)
     Console.WriteLine($"Chave: {item.Key} - Valor: {item.Value}");
 }
 
+
+    //------------------ Conceitos de TUpla--------------------------------------
+
+    (int Id, string Nome, string SobreNome, decimal Altura) tupla = (1, "Mathues", "HArdman", 1.83M);
+
+    Console.WriteLine(tupla);
+
+    LeituraArquivo leituraArquivo = new LeituraArquivo();
+    var (sucess, linhas, qtd, erro) = leituraArquivo.LerArquivo("C:/Projetos Desenvolvimento/Projetos_DotNet/trilha-net-fundamentos-desafio/DotNetBasico/Arquivos/arquivoLeitura.txt");
+    //Caso queira usar o descarte de algum dado:
+    //var (sucess, linhas, qtd, _) = leituraArquivo.LerArquivo("C:/Projetos Desenvolvimento/Projetos_DotNet/trilha-net-fundamentos-desafio/DotNetBasico/Arquivos/arquivoLeitura.txt");
+
+
+    if (sucess) 
+    {
+    Console.WriteLine($"Qtd de LInhas -> {qtd}");
+        foreach (var item in linhas)
+        {
+            Console.WriteLine(item);
+        }
+    }
+    else 
+    {
+        Console.WriteLine($"Ocorreu um erro na leitura -> {erro}");
+    }*/
+//------------------Deconstruct--------------------------------------
+
+Pessoa pessoa = new Pessoa("HArdman", 40);
+
+(string nome, int idade) = pessoa;
+
+Console.WriteLine($"NOme -> {nome}, Idade -> {idade}");
+
 Console.WriteLine("Pressione uma tecla para continuar");
-Console.ReadLine();
+    Console.ReadLine();
 
 

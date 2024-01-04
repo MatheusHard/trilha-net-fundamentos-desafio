@@ -19,7 +19,11 @@ namespace DotNetBasico.Models
             Idade = idade;
         }
 
-
+        public void Deconstruct(out string nome, out int idade) 
+        {
+            nome = Nome;
+            idade = Idade;
+        } 
         public string Nome 
         {
             get => _nome.ToUpper();
