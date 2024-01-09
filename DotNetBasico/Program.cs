@@ -140,7 +140,7 @@ Pessoa pessoa = new Pessoa("HArdman", 40);
 
 (string nome, int idade) = pessoa;
 
-Console.WriteLine($"NOme -> {nome}, Idade -> {idade}");*/
+Console.WriteLine($"NOme -> {nome}, Idade -> {idade}");
 
 //------------------Serializacao--------------------------------------
 
@@ -170,6 +170,18 @@ foreach (var item in listaDeserializar)
     Console.WriteLine($"---------------------------------");
 
 }
+*/
+
+//------------------Generic Class--------------------------------------
+
+ClasseGenerica<int> classeGenericaInt = new ClasseGenerica<int>();
+classeGenericaInt.Add(110);
+Console.WriteLine($"Tipo Int: {classeGenericaInt[0]}");
+
+ClasseGenerica<string> classeGenericaString = new ClasseGenerica<string>();
+classeGenericaString.Add("Testes tipo generico");
+Console.WriteLine($"Tipo String: {classeGenericaString[0]}");
+
 
 Console.WriteLine("Pressione uma tecla para continuar");
 Console.ReadLine();
