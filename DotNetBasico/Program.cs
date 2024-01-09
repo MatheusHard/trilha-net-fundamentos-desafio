@@ -144,11 +144,32 @@ Console.WriteLine($"NOme -> {nome}, Idade -> {idade}");*/
 
 //------------------Serializacao--------------------------------------
 
-Venda venda = new Venda(1, "GEraladeira", 4002);
+DateTime data = DateTime.Now;
+Venda venda = new Venda(1, "GEraladeira", 4002, data);
+Venda venda2 = new Venda(2, "Micoondas", 502, data);
 
-string serializado = JsonConvert.SerializeObject(venda, Formatting.Indented);
+List<Venda> lista = new List<Venda> { venda, venda2 };
 
+string serializado = JsonConvert.SerializeObject(lista, Formatting.Indented);
+
+//Add no file .json:
+File.WriteAllText("C:/Pessoal/Projetos_DotNet/trilha-net-fundamentos-desafio/DotNetBasico/Arquivos/vendas.json", serializado);
 Console.WriteLine(serializado);
+
+//------------------DeSerializacao--------------------------------------
+string json = File.ReadAllText("C:/Pessoal/Projetos_DotNet/trilha-net-fundamentos-desafio/DotNetBasico/Arquivos/vendas.json");
+
+List<Venda> listaDeserializar = JsonConvert.DeserializeObject<List<Venda>>(json);
+
+foreach (var item in listaDeserializar)
+{
+    Console.WriteLine($"Id: {item.Id}");
+    Console.WriteLine($"Cadastrado: {item.DataCadastro.ToString("dd-MM-yyyy")}");
+    Console.WriteLine($"Descricao: {item.Descricao}");
+    Console.WriteLine($"Preço: {item.Preco}");
+    Console.WriteLine($"---------------------------------");
+
+}
 
 Console.WriteLine("Pressione uma tecla para continuar");
 Console.ReadLine();
