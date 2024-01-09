@@ -1,5 +1,6 @@
 ﻿
 using DotNetBasico.Models;
+using Newtonsoft.Json;
 using System.ComponentModel;
 using System.Globalization;
 
@@ -132,16 +133,24 @@ foreach (var item in listaDicionario)
     else 
     {
         Console.WriteLine($"Ocorreu um erro na leitura -> {erro}");
-    }*/
+    }
 //------------------Deconstruct--------------------------------------
 
 Pessoa pessoa = new Pessoa("HArdman", 40);
 
 (string nome, int idade) = pessoa;
 
-Console.WriteLine($"NOme -> {nome}, Idade -> {idade}");
+Console.WriteLine($"NOme -> {nome}, Idade -> {idade}");*/
+
+//------------------Serializacao--------------------------------------
+
+Venda venda = new Venda(1, "GEraladeira", 4002);
+
+string serializado = JsonConvert.SerializeObject(venda, Formatting.Indented);
+
+Console.WriteLine(serializado);
 
 Console.WriteLine("Pressione uma tecla para continuar");
-    Console.ReadLine();
+Console.ReadLine();
 
 
