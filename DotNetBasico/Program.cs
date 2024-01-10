@@ -170,7 +170,7 @@ foreach (var item in listaDeserializar)
     Console.WriteLine($"---------------------------------");
 
 }
-*/
+
 
 //------------------Generic Class--------------------------------------
 
@@ -181,6 +181,15 @@ Console.WriteLine($"Tipo Int: {classeGenericaInt[0]}");
 ClasseGenerica<string> classeGenericaString = new ClasseGenerica<string>();
 classeGenericaString.Add("Testes tipo generico");
 Console.WriteLine($"Tipo String: {classeGenericaString[0]}");
+*/
+
+//------------------Extensions(Utils)--------------------------------------
+int numero = 15;
+bool par = false;
+
+par = numero.EhPar();
+
+Console.WriteLine($"Numero -> {numero} é {(par ? "Par": "Impar")}");
 
 
 Console.WriteLine("Pressione uma tecla para continuar");
