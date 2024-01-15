@@ -3,6 +3,7 @@ using DotNetBasico.Models;
 using Newtonsoft.Json;
 using System.ComponentModel;
 using System.Globalization;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 /*Pessoa pessoa = new Pessoa();
 pessoa.Nome = "Burumungu";
@@ -181,7 +182,7 @@ Console.WriteLine($"Tipo Int: {classeGenericaInt[0]}");
 ClasseGenerica<string> classeGenericaString = new ClasseGenerica<string>();
 classeGenericaString.Add("Testes tipo generico");
 Console.WriteLine($"Tipo String: {classeGenericaString[0]}");
-*/
+
 
 //------------------Extensions(Utils)--------------------------------------
 int numero = 15;
@@ -189,8 +190,27 @@ bool par = false;
 
 par = numero.EhPar();
 
-Console.WriteLine($"Numero -> {numero} é {(par ? "Par": "Impar")}");
+Console.WriteLine($"Numero -> {numero} é {(par ? "Par": "Impar")}");*/
 
+//------------------Atribuindo Referencia--------------------------------------
+
+//TIpos Complexos
+Venda venda = new Venda(1, "GEraladeira", 4002, DateTime.Now);
+
+Venda venda2 = venda;//Quando passa por referencia: o que mudar num objeto mudará no outro, e vice e versa
+
+venda2.Descricao = "Armario";
+
+Console.WriteLine($"Venda-> {venda.Descricao}, Preço-> { venda.Preco}");
+Console.WriteLine($"Venda 2-> {venda2.Descricao}, Preço-> {venda2.Preco}");
+
+//TIpos Primitivos
+int a = 10;
+int b = a; //Quando passa por referencia: não mudará no outro tipo
+b = 20;
+
+Console.WriteLine($"A-> {a}");
+Console.WriteLine($"B-> {b}");
 
 Console.WriteLine("Pressione uma tecla para continuar");
 Console.ReadLine();
