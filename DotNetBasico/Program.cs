@@ -210,13 +210,25 @@ int b = a; //Quando passa por referencia: não mudará no outro tipo
 b = 20;
 
 Console.WriteLine($"A-> {a}");
-Console.WriteLine($"B-> {b}");*/
+Console.WriteLine($"B-> {b}");
 
 //------------------Abstract Class--------------------------------------
 
 Corrente corrente = new Corrente();
 corrente.Creditar(2000);
 corrente.ExibirSaldo();
+
+//------------------Class e Methods Sealed--------------------------------------
+
+public sealed class Corrente // Aqui a palavra sealde evita que seja feita herança 
+{
+    public sealed override void Creditar(decimal valor)// Aqui a palavra sealde evita que seja feita override
+    {
+        saldo += valor;
+    }
+}
+
+*/
 
 Console.WriteLine("Pressione uma tecla para continuar");
 Console.ReadLine();
