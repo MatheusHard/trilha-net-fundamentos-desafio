@@ -190,7 +190,7 @@ bool par = false;
 
 par = numero.EhPar();
 
-Console.WriteLine($"Numero -> {numero} é {(par ? "Par": "Impar")}");*/
+Console.WriteLine($"Numero -> {numero} é {(par ? "Par": "Impar")}");
 
 //------------------Atribuindo Referencia--------------------------------------
 
@@ -210,7 +210,13 @@ int b = a; //Quando passa por referencia: não mudará no outro tipo
 b = 20;
 
 Console.WriteLine($"A-> {a}");
-Console.WriteLine($"B-> {b}");
+Console.WriteLine($"B-> {b}");*/
+
+//------------------Abstract Class--------------------------------------
+
+Corrente corrente = new Corrente();
+corrente.Creditar(2000);
+corrente.ExibirSaldo();
 
 Console.WriteLine("Pressione uma tecla para continuar");
 Console.ReadLine();
